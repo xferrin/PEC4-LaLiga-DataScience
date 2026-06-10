@@ -3,3 +3,5 @@ matplotlib
 numpy
 seaborn
 pytest
+networkx
+scikit-learn
