@@ -4,6 +4,7 @@ from exercises import ex2
 from exercises import ex3
 from exercises import ex4
 from exercises import ex5
+from exercises import ex6
 
 
 def run_ex1():
@@ -44,6 +45,14 @@ def run_ex5():
     print("Ejercicio 5 completado.")
 
 
+def run_ex6():
+    data = ex1.load_and_eda("data/LaLiga_Matches.csv")
+    model, real, predicted = ex6.train_regression_model(data)
+    print("Modelo entrenado. Coeficientes:", model.coef_)
+    ex6.plot_regression_results(real, predicted)
+    print("Ejercicio 6 completado.")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-ex", type=int, required=True, help="Ejercicio a ejecutar (1-7)")
@@ -59,11 +68,14 @@ def main():
         run_ex4()
     elif args.ex == 5:
         run_ex5()
+    elif args.ex == 6:
+        run_ex6()
     else:
         print("Ejercicio no implementado todavía.")
 
 
 if __name__ == "__main__":
     main()
+
 
 
