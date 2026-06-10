@@ -2,6 +2,7 @@ import argparse
 from exercises import ex1
 from exercises import ex2
 from exercises import ex3
+from exercises import ex4
 
 
 def run_ex1():
@@ -26,6 +27,14 @@ def run_ex3():
     print("Ejercicio 3 completado.")
 
 
+def run_ex4():
+    data = ex1.load_and_eda("data/LaLiga_Matches.csv")
+    season_stats = ex4.compute_goals_by_season(data)
+    print(season_stats)
+    ex4.plot_goals_by_season(season_stats)
+    print("Ejercicio 4 completado.")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-ex", type=int, required=True, help="Ejercicio a ejecutar (1-7)")
@@ -37,6 +46,8 @@ def main():
         run_ex2()
     elif args.ex == 3:
         run_ex3()
+    elif args.ex == 4:
+        run_ex4()
     else:
         print("Ejercicio no implementado todavía.")
 
