@@ -3,6 +3,7 @@ from exercises import ex1
 from exercises import ex2
 from exercises import ex3
 from exercises import ex4
+from exercises import ex5
 
 
 def run_ex1():
@@ -35,6 +36,14 @@ def run_ex4():
     print("Ejercicio 4 completado.")
 
 
+def run_ex5():
+    data = ex1.load_and_eda("data/LaLiga_Matches.csv")
+    corr = ex5.compute_correlations(data)
+    print(corr)
+    ex5.plot_correlation_heatmap(corr)
+    print("Ejercicio 5 completado.")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-ex", type=int, required=True, help="Ejercicio a ejecutar (1-7)")
@@ -48,10 +57,13 @@ def main():
         run_ex3()
     elif args.ex == 4:
         run_ex4()
+    elif args.ex == 5:
+        run_ex5()
     else:
         print("Ejercicio no implementado todavía.")
 
 
 if __name__ == "__main__":
     main()
+
 
